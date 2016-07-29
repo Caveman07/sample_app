@@ -1,6 +1,18 @@
 Rails.application.routes.draw do
- root 'static_pages#home'
 
+  #home
+  root 'static_pages#home'
+
+  #users resource
+  resources :users
+
+  #sessions
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+
+ 
+  #static
   get '/signup',   to: 'users#new'
   get  '/help',    to: 'static_pages#help'
   get  '/about',   to: 'static_pages#about'
