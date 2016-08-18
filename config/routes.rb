@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
- 
+  resources :microposts, only: [:create, :destroy]
+
   #static
   get '/signup',   to: 'users#new'
   get  '/help',    to: 'static_pages#help'
